@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            color: #343a40;
+        }
+
+        li:hover {
+            background-color: #d4edda;
+            color: #155724;
+            transition: background-color 0.3s ease;
+        }
+
+        .no-results {
+            font-size: 16px;
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados de la Búsqueda</h1>
+    <p>Búsqueda: "{{ query }}"</p>
+
+    {% if alumnos %}
+    <ul>
+        {% for alumno in alumnos %}
+        <li>{{ alumno.nombre }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-results">No se encontraron resultados.</p>
+    {% endif %}
+</body>
+</html>
